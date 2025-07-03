@@ -1,6 +1,8 @@
+#nullable disable
+
 using Microsoft.EntityFrameworkCore;
 
-namespace UserAuthApp.Data
+namespace psigestor.Data // Corrigido para o mesmo namespace usado no projeto
 {
     public class AppDbContext : DbContext
     {

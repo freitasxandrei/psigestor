@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using UserAuthApp.Data;
+using psigestor.Data;
 
 #nullable disable
 
@@ -21,7 +21,7 @@ namespace psigestor.Migrations
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("UserAuthApp.Data.Answer", b =>
+            modelBuilder.Entity("psigestor.Data.Answer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace psigestor.Migrations
                     b.ToTable("Answers");
                 });
 
-            modelBuilder.Entity("UserAuthApp.Data.Questionnaire", b =>
+            modelBuilder.Entity("psigestor.Data.Questionnaire", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace psigestor.Migrations
                     b.ToTable("Questionnaires");
                 });
 
-            modelBuilder.Entity("UserAuthApp.Data.User", b =>
+            modelBuilder.Entity("psigestor.Data.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,9 +98,9 @@ namespace psigestor.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("UserAuthApp.Data.Answer", b =>
+            modelBuilder.Entity("psigestor.Data.Answer", b =>
                 {
-                    b.HasOne("UserAuthApp.Data.Questionnaire", "Questionnaire")
+                    b.HasOne("psigestor.Data.Questionnaire", "Questionnaire")
                         .WithMany()
                         .HasForeignKey("QuestionnaireId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -109,9 +109,9 @@ namespace psigestor.Migrations
                     b.Navigation("Questionnaire");
                 });
 
-            modelBuilder.Entity("UserAuthApp.Data.Questionnaire", b =>
+            modelBuilder.Entity("psigestor.Data.Questionnaire", b =>
                 {
-                    b.HasOne("UserAuthApp.Data.User", "User")
+                    b.HasOne("psigestor.Data.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
